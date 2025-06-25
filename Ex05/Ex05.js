@@ -1,25 +1,20 @@
-const contador  = {
 
-valor:  0,
+function filtrar(lista, propriedades, valores) {
+  const resultado = lista.filter((item) => {
+    return propriedades.every((prop, i) => item[prop] === valores[i]);
+  });
 
-incrementar(){
-
-  this.valor += 1;
-},
-
-decrementar(){
-
-  this.valor -= 1;
-},
-
-mostrarValor(){
-
-  console.log(this.valor);
-}
+  console.log(resultado);
+  return resultado;
 }
 
-contador.incrementar();
-contador.incrementar();
-contador.incrementar();
-contador.decrementar();
-contador.mostrarValor();
+
+const pessoas = [
+  { nome: "João", idade: 25, cidade: "SP" },
+  { nome: "Maria", idade: 30, cidade: "RJ" },
+  { nome: "Ana", idade: 25, cidade: "SP" },
+  { nome: "Carlos", idade: 25, cidade: "MG" }
+];
+
+
+filtrar(pessoas, ["idade", "cidade"], [25, "SP"]);
